@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import NavBar from "./components/costumHooks/NavBar";
+import DisplayUsers from "./components/DisplayUsers";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useRouteError,
+} from "react-router-dom";
+import Tasks from "./components/Tasks";
+import Search from "./components/Search";
+import Lists from "./components/Lists";
+import ErrorPage from "./components/ErrorPage";
+import Home from "./components/Home";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component() {
+  render() {
+    return (
+      <Router>
+        <NavBar />
+
+        <Routes>
+          <Route path="/" end element={<Home />} />
+          <Route path="users" element={<DisplayUsers />} />
+          <Route path="tasks" element={<Tasks />}>
+            <Route path="search" element={<Search />} />
+            <Route path="lists" element={<Lists />} />
+          </Route>
+          <Route
+            path="*"
+            element={<ErrorPage />}
+            useRouteError={useRouteError}
+          />
+        </Routes>
+      </Router>
+    );
+  }
 }
 
 export default App;
