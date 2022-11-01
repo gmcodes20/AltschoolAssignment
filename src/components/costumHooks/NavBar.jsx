@@ -4,7 +4,10 @@ import { NavLink } from "react-router-dom";
 function NavBar() {
   return (
     <nav className="navbar container flex">
-      <div className="logo">logo</div>
+      <NavLink to={'/'} className="logo" style={{
+        fontSize: '2rem',
+        fontWeight: '700', color: 'yellow'
+      }} >lGMCo</NavLink>
 
       <ul className="navlinks flex">
         <li>

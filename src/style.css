@@ -16,7 +16,7 @@ code {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  border: 1px solid red;
+/*   border: 1px solid red; */
 }
 
 img {
@@ -54,6 +54,23 @@ ul {
   box-shadow: 2.5px 2px 5px hsl(0deg 0% 0% / 0.42),
     2.5px -2px 5px hsl(0deg 0% 0% / 0.42);
   border-radius: 15px;
+transition: 0.5s, ;
+}
+
+.card:hover{
+  background-color:blue;
+  color:#fff;
+}
+
+.card:hover .name{
+  color: yellow
+}
+
+
+.btn{
+  padding:0.5em;
+  font-size: 1rem;
+  display: inline-block;
 }
 
 .p-1 {
@@ -107,6 +124,19 @@ ul {
 .navbar {
   justify-content: space-between;
   padding: 2rem;
+  background-color: #000;
+}
+.nav-link{
+  font-size:1.2rem;
+  font-weight:600;
+  transition:0.5s;
+  color:yellow;
+}
+
+
+.nav-link:hover{
+  color: #f435;
+font-size:1.4rem
 }
 
 .nav-link.active {
@@ -117,16 +147,53 @@ ul {
 /* Error Page */
 
 .error {
-  background-image: url("./assets/cry.jpg");
+/*   background-image: url("./assets/cry.jpg");
   background-size: cover;
-  background-position: center;
-  height: 100vh;
+  background-position: center; */
+  height: 100%;
+  align-items: center;
+  justify-content:center;
+}
+
+.error-details{
+  flex-direction: column;
 }
 
 /* Home */
 .home-container {
-  background-image: url("./assets/hmp.jpg");
+  background:url("./assets/hmp.jpg") ;
   background-size: cover;
   background-position: center;
   height: 100vh;
+  width:100%;
+  flex-direction:row;
+  text-align:center;
+  align-items:center;
+  justify-content:center;
+  gap:2rem;
+  position:relative;
+  color:#fff;
+ 
+}
+
+.home-container::after{
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color:rgba(0, 0, 0, 0.12) ;
+}
+
+.intro{
+  display:flex;
+  flex-direction:column;
+   gap:2rem;
+}
+
+
+
+.intro > *{
+  margin-block:.5rem;
 }
